@@ -1,0 +1,26 @@
+package sentence;
+
+import java.util.Scanner;
+
+public class sentence{
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+
+        
+        System.out.println("Enter the sentences :");
+        System.out.println("Enter the sentences :");
+        System.out.println("Enter the sentences :");
+
+        
+        String combinedsentences = scanner.nextLine();
+       
+
+        
+        System.out.println("combined sentence : " + combinedsentences);
+        
+
+        
+        scanner.close();
+    }
+}
