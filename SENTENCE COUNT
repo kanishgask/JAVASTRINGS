@@ -1,0 +1,51 @@
+package string;
+
+
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class string {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+    
+        System.out.println("Enter a string:");
+        String input = scanner.nextLine();
+        
+       
+        countRepeatedLetters(input);
+        
+        scanner.close();
+    }
+
+    private static void countRepeatedLetters(String input) {
+       
+        input = input.toLowerCase();
+  
+        Map<Character, Integer> letterCount = new HashMap<>();
+        
+      
+        for (char ch : input.toCharArray()) {
+            if (Character.isLetter(ch)) { 
+                letterCount.put(ch, letterCount.getOrDefault(ch, 0) + 1);
+            }
+        }
+        
+       
+        System.out.println("Letters that are repeated:");
+        boolean hasRepeated = false;
+        for (Map.Entry<Character, Integer> entry : letterCount.entrySet()) {
+            if (entry.getValue() > 1) {
+                System.out.println(entry.getKey() + ": " + entry.getValue() + " times");
+                hasRepeated = true;
+            }
+        }
+        
+        if (!hasRepeated) {
+            System.out.println("No letters are repeated.");
+        }
+    }
+}
+
