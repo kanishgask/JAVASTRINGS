@@ -1,0 +1,45 @@
+package stringcount;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class stringcount{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+      
+        System.out.println("Enter a sentence:");
+        String sentence = scanner.nextLine();
+
+      
+        countWordsAndLetters(sentence);
+
+        scanner.close();
+    }
+
+    private static void countWordsAndLetters(String sentence) {
+     
+        String[] words = sentence.split("\\s+"); 
+        int wordCount = words.length;
+
+        Map<Character, Integer> letterCount = new HashMap<>();
+
+       
+        for (char ch : sentence.toCharArray()) {
+            if (Character.isLetter(ch)) { 
+                ch = Character.toLowerCase(ch); 
+                letterCount.put(ch, letterCount.getOrDefault(ch, 0) + 1);
+            }
+        }
+
+    
+        System.out.println("Number of words: " + wordCount);
+
+     
+        System.out.println("Letters and their counts:");
+        for (Map.Entry<Character, Integer> entry : letterCount.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue() + " times");
+        }
+    }
+}
